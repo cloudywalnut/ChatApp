@@ -14,13 +14,19 @@
   <ion-list *ngFor="let item of items$ | async">
     <ion-item>
       <p> <strong [ngStyle]="{'color': getSenderColor(item.val().sender_id)}">{{item.val().sender_name}}:</strong> {{item.val().message}} </p>
+      <ng-container *ngIf="is_user(item.val().sender_id)">
+        <ion-button slot = "end" color = "danger" (click) = "delete_message(item.key)">Delete</ion-button>
+      </ng-container>
+      <ng-container *ngIf="!is_user(item.val().sender_id)">
+        <ion-button slot = "end" (click) = "ai_message(item.val().message)">Ask AI</ion-button>
+      </ng-container>
     </ion-item>
   </ion-list>
 
   <ion-footer>
     <ion-item>
-      <ion-input [(ngModel)]="new_message" type="text" placeholder="Type Your Message"></ion-input>
-      <ion-button (click)="sendMessage()">Send</ion-button>
+      <ion-textarea [(ngModel)]="new_message" placeholder="Type Your Message"></ion-textarea>
+      <ion-button slot = "end" (click)="sendMessage()">Send</ion-button>
     </ion-item>
   </ion-footer>
   

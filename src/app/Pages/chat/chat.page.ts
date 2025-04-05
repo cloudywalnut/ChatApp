@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Database, ref, list as listFire, push } from '@angular/fire/database';
+import { Database, ref, list as listFire, push, remove } from '@angular/fire/database';
 import { Observable, map } from 'rxjs';
 import { Auth, signOut, onAuthStateChanged } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-chat',
@@ -17,7 +18,7 @@ export class ChatPage implements OnInit {
   user_name: any;
   new_message: any;
 
-  constructor(private db: Database, private auth: Auth, private router: Router) {}
+  constructor(private db: Database, private auth: Auth, private router: Router, private http: HttpClient) {}
 
   ngOnInit(){
 
@@ -57,6 +58,29 @@ export class ChatPage implements OnInit {
       return 'skyblue';  // Color values should be in quotes
     } 
   }  
+
+  is_user(sender_id: string){
+    if (this.user_id == sender_id){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  async delete_message(message_id: string){
+    const path = `Messages/${message_id}`
+    await remove(ref(this.db, path));
+  }
+
+  ai_message(message: any) {
+    const payload = {message: message}
+    this.http.post('https://web-production-db5e6.up.railway.app/chatApp', payload).subscribe(
+      (response: any) => {
+        this.new_message = response.response
+      }
+    )
+  }
+
 
   async logout() {
     try {
