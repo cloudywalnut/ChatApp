@@ -4,6 +4,7 @@
       Welcome to the Chat
     </ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="to_dashboard()">Dashboard</ion-button>
       <ion-button (click)="logout()" color="danger">LogOut</ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -25,7 +26,7 @@
 
   <ion-footer>
     <ion-item>
-      <ion-textarea [(ngModel)]="new_message" placeholder="Type Your Message"></ion-textarea>
+      <ion-textarea [(ngModel)]="new_message" placeholder="Type Your Message" rows="1"></ion-textarea>
       <ion-button slot = "end" (click)="sendMessage()">Send</ion-button>
     </ion-item>
   </ion-footer>

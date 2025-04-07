@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Create New Chat</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click) = "go_dashboard()">Dashboard</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input id = "chatName" type = "text" placeholder="Name of Chat"></ion-input>    
+  </ion-item>
+  <ion-item>
+    <ion-input id = "aiPrompt" type = "text" placeholder="AI Behaviour"></ion-input>    
+  </ion-item>
+  <ion-button expand="block" (click) = "create_chat()">Create Chat</ion-button>
+  <ion-card>
+    <ion-card-content>
+      <h1 style="color: white; font-size: 2em;">Add People to the Chat</h1>
+    </ion-card-content>
+    <ion-list *ngFor="let user of user$ | async">
+      <ion-item *ngIf="user.key != user_id">
+        <ion-label>
+          <h2 style="font-size: 1.2em; font-weight: bold;">{{ user.val().name }}</h2>
+          <p style="font-size: 0.9em; color: gray;">{{ user.val().email }}</p>
+        </ion-label>
+        <ion-button slot="end" (click) = "addToChat(user.key)" [color]="member_added(user.key)">{{add_remove}}</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

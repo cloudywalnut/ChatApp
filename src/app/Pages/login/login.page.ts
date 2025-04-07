@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
     // This is done so that the user can not navigate to the login page if he hasn't already logged out
     onAuthStateChanged(this.auth, (user) => {
       if (user) {
-        this.router.navigate(['/chat']); // Redirect to login if not authenticated
+        this.router.navigate(['/dashboard']); // Redirect to login if not authenticated
       }
     });
 
@@ -42,7 +42,7 @@ export class LoginPage implements OnInit {
       })
 
       if(this.user){
-        this.router.navigate(['/chat'])
+        this.router.navigate(['/dashboard'])
         console.log("Sign In Successful")
       }
 

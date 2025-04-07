@@ -7,13 +7,21 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'chat',
+    path: 'chat/:chatId',
     loadChildren: () => import('./Pages/chat/chat.module').then( m => m.ChatPageModule)
   },
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./Pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'new-chat',
+    loadChildren: () => import('./Pages/new-chat/new-chat.module').then( m => m.NewChatPageModule)
   }
 ];
 
