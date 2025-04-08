@@ -1,25 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-img src="assets/icon/chatterboxz.png" style="width: 32px; height: 32px; margin-left: 10px;"></ion-img>
+    </ion-buttons>
     <ion-title>Dashboard</ion-title>
     <ion-buttons slot = "end">
-      <!-- <ion-button (click) = "to_chat()">Chat</ion-button> -->
       <ion-button (click) = "logout()" color = "danger">LogOut</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-row>
-    <ion-col>
-      <ion-button expand="block" (click) = "create_chat()">Create a New Chat</ion-button>
-      <h1 style="margin: 0.3em;">Your Chats</h1>
-      <ion-list *ngFor="let chat of user_chats$ | async">
-        <ion-item>
-          <p>{{chat.val()['Chat Name']}}</p>
-          <ion-button slot = "end" (click) = "to_chat(chat.key)">Chat</ion-button>
-          <ion-button slot = "end" (click) = "to_settings(chat.key)">Settings</ion-button>
-        </ion-item>
-      </ion-list>
-    </ion-col>
-  </ion-row>
+  <ion-button expand="block" (click) = "create_chat()" style="margin: 10px;">Create a New Chat</ion-button>
+  <div class="container" style="margin: 10px;">
+    <h3>Your Chats 💬</h3>
+    <ion-list *ngFor="let chat of user_chats$ | async">
+      <ion-item>
+        <p>{{chat.val()['Chat Name']}}</p>
+        <ion-button slot = "end" (click) = "to_chat(chat.key)">Chat</ion-button>
+        <ion-button slot = "end" (click) = "to_settings(chat.key)">Settings</ion-button>
+      </ion-item>
+    </ion-list>  
+  </div>
 </ion-content>

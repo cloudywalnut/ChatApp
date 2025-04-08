@@ -1,7 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-img src="assets/icon/chatterboxz.png" style="width: 32px; height: 32px; margin-left: 10px;"></ion-img>
+    </ion-buttons>
     <ion-title>
-      Welcome to the Chat
+      Chat
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="to_dashboard()">Dashboard</ion-button>
@@ -26,7 +29,7 @@
 
   <ion-footer>
     <ion-item>
-      <ion-textarea [(ngModel)]="new_message" placeholder="Type Your Message" rows="1"></ion-textarea>
+      <ion-textarea [(ngModel)]="new_message" placeholder="Type Your Message" rows="1" autoGrow="true"></ion-textarea>
       <ion-button slot = "end" (click)="sendMessage()">Send</ion-button>
     </ion-item>
   </ion-footer>

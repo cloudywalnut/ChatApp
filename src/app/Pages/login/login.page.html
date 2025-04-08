@@ -1,11 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-img src="assets/icon/chatterboxz.png" style="width: 32px; height: 32px; margin-left: 10px;"></ion-img>
+    </ion-buttons>
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card-content>
-    <ion-button expand="block" (click)="loginWithGoogle()">Login with Google</ion-button>  
-  </ion-card-content>  
+  <ion-card style="border-radius: 10px;">
+    <ion-card-header>
+      <ion-card-title style="font-size: 1.5em;" >Welcome to Chatterboxz</ion-card-title>
+      <ion-card-subtitle style="font-size: 1.2em;">
+        Chatterboxz is an innovative AI-powered chat application that allows you to create and 
+        customize unique AI personalities for every conversation. Tailor each chat experience to
+        suit your needs, whether it's for fun, learning, or productivity 🚀
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="block" (click)="loginWithGoogle()">Login with Google</ion-button>  
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
