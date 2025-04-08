@@ -16,7 +16,8 @@
       <ion-list *ngFor="let chat of user_chats$ | async">
         <ion-item>
           <p>{{chat.val()['Chat Name']}}</p>
-          <ion-button slot = "end" (click) = "to_chat(chat.key)">Go To Chat</ion-button>
+          <ion-button slot = "end" (click) = "to_chat(chat.key)">Chat</ion-button>
+          <ion-button slot = "end" (click) = "to_settings(chat.key)">Settings</ion-button>
         </ion-item>
       </ion-list>
     </ion-col>

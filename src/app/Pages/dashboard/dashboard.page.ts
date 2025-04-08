@@ -36,6 +36,11 @@ export class DashboardPage implements OnInit {
     this.router.navigate([`/chat/${chat_id}`]);
   }
 
+  to_settings(chat_id: any){
+    this.router.navigate([`chat-settings/${chat_id}`])
+  }
+
+
   async logout() {
     try {
       await signOut(this.auth);

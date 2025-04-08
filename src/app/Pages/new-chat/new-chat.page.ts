@@ -49,7 +49,6 @@ export class NewChatPage implements OnInit {
     }else if(this.chatMembers.includes(user)){
       this.chatMembers.splice(this.chatMembers.indexOf(user),1)
     }
-    console.log(this.chatMembers);
   }
 
   member_added(user:any){
@@ -77,10 +76,11 @@ export class NewChatPage implements OnInit {
       });
       
       const dbref = ref(this.db, `/Chat`);
-      // push ref stores the key
-      const pushref = await push(dbref, {"Chat Name": chatName.value, "Chat Prompt": aiPrompt.value, "Chat People": chatPeopleObj})
-  
+
+      await push(dbref, {"Chat Name": chatName.value, "Chat Prompt": aiPrompt.value, "Chat People": chatPeopleObj})
+
       window.alert("Chat Has been created Successfully")
+      window.location.reload()
 
     }else{
       window.alert("Fill in the fields and add atleast one person to the Chat"); // For Testing purposes
