@@ -85,7 +85,7 @@ export class ChatPage implements OnInit {
     const payload = {message: message, system_message: this.ai_prompt}
     this.http.post('https://web-production-db5e6.up.railway.app/chatApp', payload).subscribe(
       (response: any) => {
-        this.new_message = response.response + " - AI Generated";
+        this.new_message = response.response;
       }
     )
   }
