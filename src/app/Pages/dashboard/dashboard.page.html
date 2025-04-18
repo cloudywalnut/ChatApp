@@ -14,11 +14,11 @@
   <ion-button expand="block" (click) = "create_chat()" style="margin: 10px;">Create a New Chat</ion-button>
   <div class="container" style="margin: 10px;">
     <h3>Your Chats 💬</h3>
-    <ion-list *ngFor="let chat of user_chats$ | async">
+    <ion-list *ngFor="let chat of chat_data">
       <ion-item>
-        <p>{{chat.val()['Chat Name']}}</p>
-        <ion-button slot = "end" (click) = "to_chat(chat.key)">Chat</ion-button>
-        <ion-button slot = "end" (click) = "to_settings(chat.key)" color="success">Settings</ion-button>
+        <p>{{chat.chat_name}}</p>
+        <ion-button slot = "end" (click) = "to_chat(chat.chat_id)">Chat</ion-button>
+        <ion-button slot = "end" (click) = "to_settings(chat.chat_id)" color="success">Settings</ion-button>
       </ion-item>
     </ion-list>  
   </div>

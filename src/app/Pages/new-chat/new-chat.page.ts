@@ -72,12 +72,22 @@ export class NewChatPage implements OnInit {
       // Convert chatMembers array into an object with each member as a key
       // for correct representation in firebase realtime database
       this.chatMembers.forEach((member:any)  => {
-        chatPeopleObj[member] = '';
+        if (member == this.user_id){
+          chatPeopleObj[member] = {
+            "Chat Prompt": aiPrompt.value
+          };  
+        }else{
+          chatPeopleObj[member] = ""
+        }
       });
       
-      const dbref = ref(this.db, `/Chat`);
+      let dbref = ref(this.db, `/Chat`);
+      const pushref = await push(dbref, {"Chat Name": chatName.value, "Chat People": chatPeopleObj})
 
-      await push(dbref, {"Chat Name": chatName.value, "Chat Prompt": aiPrompt.value, "Chat People": chatPeopleObj})
+      for (let member of this.chatMembers){
+        dbref = ref(this.db, `/Users/${member}/Chat/${pushref.key}`);
+        await set (dbref, "");
+      }
 
       window.alert("Chat Has been created Successfully")
       window.location.reload()

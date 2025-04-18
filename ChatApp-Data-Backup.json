@@ -1,0 +1,155 @@
+{
+  "Chat": {
+    "-ONI-8vgN3i3ZgSerhXa": {
+      "Chat Messages": {
+        "-ONI-Kjcmrfk2cjrKFmy": {
+          "message": "hello",
+          "sender_id": "JYlhsE4XDJReGchCDpCoJTsKunH2",
+          "sender_name": "Muhammad Ali"
+        },
+        "-ONI16NCNn3q_fzyiGuJ": {
+          "message": "hello",
+          "sender_id": "2UqAZkJsVUNKnjZRVuCutTuhtQX2",
+          "sender_name": "Mustansir Muhammad"
+        },
+        "-ONI18ic8Lyy7_gxQ4Wi": {
+          "message": "ai behaviour sahi si set kro papa",
+          "sender_id": "2UqAZkJsVUNKnjZRVuCutTuhtQX2",
+          "sender_name": "Mustansir Muhammad"
+        },
+        "-ONI1FqFezGDdw1ueuft": {
+          "message": "ane eik naam ni 2 chat banawi did che tame?",
+          "sender_id": "2UqAZkJsVUNKnjZRVuCutTuhtQX2",
+          "sender_name": "Mustansir Muhammad"
+        },
+        "-ONI1gCMbdETmTAfDI87": {
+          "message": "me ye delete kri didi che biji wali admin access si",
+          "sender_id": "2UqAZkJsVUNKnjZRVuCutTuhtQX2",
+          "sender_name": "Mustansir Muhammad"
+        },
+        "-ONI2Xb1vn_bJbCVv62h": {
+          "message": "hawe msg ma ask ai krjo,",
+          "sender_id": "2UqAZkJsVUNKnjZRVuCutTuhtQX2",
+          "sender_name": "Mustansir Muhammad"
+        },
+        "-ONIEIezEJhsU70BgWo6": {
+          "message": "where are you",
+          "sender_id": "JYlhsE4XDJReGchCDpCoJTsKunH2",
+          "sender_name": "Muhammad Ali"
+        },
+        "-ONIEcH9oRfYPtCgJoQF": {
+          "message": "Aree waah! Toh kyare delete kari didi? Aapne toh admin banva na maza aavyo! Ab toh aapne double dhamaal karvo padse, na? 😄 Koi navi strategy sochiye ke kaise admin banva ni koshish karvi? 😂 - AI Generated",
+          "sender_id": "JYlhsE4XDJReGchCDpCoJTsKunH2",
+          "sender_name": "Muhammad Ali"
+        },
+        "-ONIEjQQyhUtW1lsfmi6": {
+          "message": "Haha, bilkul! AI ne toh training ma rehta, par tamara jaise smart logon ni madad thi toh saro banse. Aapne koi khas topic ma madad joiye che? 😄 - AI Generated",
+          "sender_id": "JYlhsE4XDJReGchCDpCoJTsKunH2",
+          "sender_name": "Muhammad Ali"
+        },
+        "-ONIJcqczziYh_mIfgUP": {
+          "message": "ai prompt sahi si define jitno hase itno acho response hase",
+          "sender_id": "2UqAZkJsVUNKnjZRVuCutTuhtQX2",
+          "sender_name": "Mustansir Muhammad"
+        },
+        "-ONIybdKYl-KabsEsXhT": {
+          "message": "bool",
+          "sender_id": "JYlhsE4XDJReGchCDpCoJTsKunH2",
+          "sender_name": "Muhammad Ali"
+        }
+      },
+      "Chat Name": "Family Chat",
+      "Chat People": {
+        "2UqAZkJsVUNKnjZRVuCutTuhtQX2": "",
+        "JYlhsE4XDJReGchCDpCoJTsKunH2": "",
+        "hmKBeVKvyNS2Y3BKbOC1kQmMmKr1": ""
+      },
+      "Chat Prompt": "Reply to the messages in dawoodi bohra english script gujrati in a fun way"
+    },
+    "-ONP88EOUuAPsGpxOSzv": {
+      "Chat Messages": {
+        "-ONPATMOZjtCy5pKwKLY": {
+          "message": "Hello",
+          "sender_id": "2UqAZkJsVUNKnjZRVuCutTuhtQX2",
+          "sender_name": "Mustansir Muhammad"
+        }
+      },
+      "Chat Name": "Taha - Mustansir",
+      "Chat People": {
+        "1B3m1M4g0LVvg3fmPyHbLl6dlpt2": "",
+        "2UqAZkJsVUNKnjZRVuCutTuhtQX2": ""
+      },
+      "Chat Prompt": "Talk on behalf of me to my brother in roman urdu like a normal pakistani, keep it light hearted and fun"
+    },
+    "-ONoomru59oWjn3Lev3p": {
+      "Chat Name": "Use Of AI",
+      "Chat People": {
+        "2UqAZkJsVUNKnjZRVuCutTuhtQX2": "",
+        "MJWoNI5ln0OYQ3IKj5qjzTjFz662": ""
+      },
+      "Chat Prompt": "formal"
+    },
+    "-ONpLMJaBhyGFYZWUVhW": {
+      "Chat Messages": {
+        "-ONpLOQGijKiroKkUaqr": {
+          "message": "hello nalla",
+          "sender_id": "2UqAZkJsVUNKnjZRVuCutTuhtQX2",
+          "sender_name": "Mustansir Muhammad"
+        }
+      },
+      "Chat Name": "Mustansir - Hussain",
+      "Chat People": {
+        "2UqAZkJsVUNKnjZRVuCutTuhtQX2": "",
+        "5F7Igk9HpDOG69scQxN1qKafPFb2": ""
+      },
+      "Chat Prompt": "ans in roman urdu like my friend, use occasional urdu cuss words from pakistan and continously be humoruous and asn short"
+    }
+  },
+  "Users": {
+    "1B3m1M4g0LVvg3fmPyHbLl6dlpt2": {
+      "Chat": {
+        "-ONP88EOUuAPsGpxOSzv": ""
+      },
+      "email": "taharashid5152@gmail.com",
+      "name": "Taha Rashid"
+    },
+    "2UqAZkJsVUNKnjZRVuCutTuhtQX2": {
+      "Chat": {
+        "-ONI-8vgN3i3ZgSerhXa": "",
+        "-ONP88EOUuAPsGpxOSzv": "",
+        "-ONoomru59oWjn3Lev3p": "",
+        "-ONpLMJaBhyGFYZWUVhW": ""
+      },
+      "email": "mustansir.betul@gmail.com",
+      "name": "Mustansir Muhammad"
+    },
+    "5F7Igk9HpDOG69scQxN1qKafPFb2": {
+      "Chat": {
+        "-ONpLMJaBhyGFYZWUVhW": ""
+      },
+      "email": "betulhussain4@gmail.com",
+      "name": "hussain betul"
+    },
+    "JYlhsE4XDJReGchCDpCoJTsKunH2": {
+      "Chat": {
+        "-ONI-8vgN3i3ZgSerhXa": ""
+      },
+      "email": "muhammad.betul@gmail.com",
+      "name": "Muhammad Ali"
+    },
+    "MJWoNI5ln0OYQ3IKj5qjzTjFz662": {
+      "Chat": {
+        "-ONoomru59oWjn3Lev3p": ""
+      },
+      "email": "alishabbir5351@gmail.com",
+      "name": "ali shabbir"
+    },
+    "hmKBeVKvyNS2Y3BKbOC1kQmMmKr1": {
+      "Chat": {
+        "-ONI-8vgN3i3ZgSerhXa": ""
+      },
+      "email": "betullamiya@gmail.com",
+      "name": "Lamiya Betul"
+    }
+  }
+}

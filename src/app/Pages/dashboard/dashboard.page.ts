@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth, signOut, onAuthStateChanged } from '@angular/fire/auth';
 import { Observable, map } from 'rxjs';
-import { Database, ref,list as listFire } from '@angular/fire/database';
+import { Database, ref,list as listFire, get } from '@angular/fire/database';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +15,10 @@ export class DashboardPage implements OnInit {
   user_chats$: Observable<any[]> | undefined;
   user_id: any;
 
+  // i had previously set it to undefined which was causing problems with push
+  // array needs to be defined for push to work with an array
+  chat_data: any[] = [];
+
   constructor(private db: Database, private auth: Auth, private router: Router) { }
 
   ngOnInit() {
@@ -24,11 +28,28 @@ export class DashboardPage implements OnInit {
         this.router.navigate(['/login']); // Redirect to login if not authenticated
       }else{
         this.user_id = user.uid;
+
         // moved inside or else it will run before we even have the user id
-        this.get_chats(); 
+        // this.get_chats(); 
+
+        // This is the way i figured out to avoid any un necessary complications
+        // This is however without an observable so will require reload if added to new chat - more on this tomorrow
+        this.chat_data = []
+        const dbref = ref(this.db, `/Users/${this.user_id}/Chat`);
+        get(dbref).then(response => {
+          let chat_ids = Object.keys(response.val());
+        
+          for (let chat of chat_ids) {
+            const dbref = ref(this.db, `/Chat/${chat}/Chat Name`);
+            get(dbref).then(response => {
+              this.chat_data.push({ chat_id: chat, chat_name: response.val()});
+            });
+          }
+        });
+        
       }
-    });
-  
+
+    });  
 
   }
 

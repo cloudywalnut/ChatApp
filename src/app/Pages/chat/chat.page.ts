@@ -31,12 +31,12 @@ export class ChatPage implements OnInit {
       }else{
         this.user_id = user.uid;
         this.user_name = user.displayName;
+        // need to add a security feature to only allow people in the chat to access the chat
+        this.chat_id =  this.route.snapshot.paramMap.get('chatId');
+        this.getMessages();
+        this.get_ai_prompt();
       }
     });
-    // need to add a security feature to only allow people in the chat to access the chat
-    this.chat_id =  this.route.snapshot.paramMap.get('chatId');
-    this.getMessages();
-    this.get_ai_prompt();
   }
 
   getMessages(){
@@ -76,8 +76,10 @@ export class ChatPage implements OnInit {
   }
 
   get_ai_prompt(){
-    const dbref = ref(this.db, `Chat/${this.chat_id}/Chat Prompt`);
-    get(dbref).then(response => this.ai_prompt = response.val())
+    const dbref = ref(this.db, `Chat/${this.chat_id}/Chat People/${this.user_id}/Chat Prompt`);
+    get(dbref).then(response => {
+      this.ai_prompt = response.val() || ""
+    })
   }
 
   // Just this method needs to be updated

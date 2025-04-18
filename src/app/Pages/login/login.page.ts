@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from '@angular/fire/auth';
-import { Database, ref, set } from '@angular/fire/database';
+import { Database, ref, set, update } from '@angular/fire/database';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,8 +35,9 @@ export class LoginPage implements OnInit {
 
       // In orders to get this and store this in the realtime database
       // ref gives the reference of what needs to be created
-      // set sets the value at that place
-      await set(ref(this.db,`Users/${this.user.uid}`),{
+      // update sets the value at that place
+      // previously using set was causing issues as it was over writing the whole thing (Chat was getting removed)
+      await update(ref(this.db,`Users/${this.user.uid}`),{
         email: this.user.email,
         name: this.user.displayName
       })

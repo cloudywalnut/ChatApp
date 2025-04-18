@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 import { Observable, map } from 'rxjs';
-import { Database, ref, list as listFire, update, get, remove } from '@angular/fire/database';
+import { Database, ref, list as listFire, update, get, remove, set } from '@angular/fire/database';
 
 
 @Component({
@@ -65,7 +65,10 @@ export class ChatSettingsPage implements OnInit {
   }
 
   async exit_chat(){
-    const dbref = ref(this.db, `Chat/${this.chat_id}/Chat People/${this.user_id}`)
+    // needs to be in this sequence as can not write a chat to User/uid/Chat until part of that chat
+    let dbref = ref(this.db, `Users/${this.user_id}/Chat/${this.chat_id}`)
+    await remove(dbref);
+    dbref = ref(this.db, `Chat/${this.chat_id}/Chat People/${this.user_id}`)
     await remove(dbref);
     window.alert("You have exited the Chat")
     this.router.navigate(['/dashboard'])
@@ -80,7 +83,7 @@ export class ChatSettingsPage implements OnInit {
       updates[`Chat/${this.chat_id}/Chat Name`] = chatName.value;
     }  
     if (aiPrompt.value) {
-      updates[`Chat/${this.chat_id}/Chat Prompt`] = aiPrompt.value;
+      updates[`Chat/${this.chat_id}/Chat People/${this.user_id}/Chat Prompt`] = aiPrompt.value;
     }
     if (Object.keys(updates).length > 0) {
       update(ref(this.db), updates);
@@ -94,8 +97,10 @@ export class ChatSettingsPage implements OnInit {
   async add_new_members() {
     if (this.chatMembers.length > 0) {
       for (let member of this.chatMembers) {
-        const dbref = ref(this.db, `Chat/${this.chat_id}/Chat People`);
-        await update(dbref, { [member]: "" });
+        let dbref = ref(this.db, `Chat/${this.chat_id}/Chat People/${member}`);
+        await set(dbref,"");
+        dbref = ref(this.db, `Users/${member}/Chat/${this.chat_id}`)
+        await set(dbref, "");
       }
       window.alert("New Members Added Successfully")
     } else {
