@@ -1,0 +1,6 @@
+- Use Node Version 22
+- git clone <repo-url>
+- cd <project-folder>
+- npm install
+- npm install -g @ionic/cli
+- ionic serve
