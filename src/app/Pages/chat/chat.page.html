@@ -23,10 +23,14 @@
         {{item.val().message}}
       </p>
       <ng-container *ngIf="is_user(item.val().sender_id)">
-        <ion-button slot="end" color="danger" (click)="delete_message(item.key)">Delete</ion-button>
+        <ion-button slot="end" color="danger" fill="clear" (click)="delete_message(item.key)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
       </ng-container>
       <ng-container *ngIf="!is_user(item.val().sender_id)">
-        <ion-button slot="end" (click)="ai_message(item.val().message)">Ask AI</ion-button>
+        <ion-button slot="end" fill="clear" (click)="ai_message(item.val().message)">
+          <ion-icon name="sparkles-outline"></ion-icon>
+        </ion-button>
       </ng-container>
     </ion-item>
   </ion-list>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
 import { Database, ref, list as listFire, push, remove, get } from '@angular/fire/database';
 import { Observable, map } from 'rxjs';
 import { Auth, signOut, onAuthStateChanged } from '@angular/fire/auth';
@@ -19,6 +20,7 @@ export class ChatPage implements OnInit {
   new_message: any;
   chat_id: any;
   ai_prompt: any;
+  @ViewChild(IonContent) content!: IonContent; // Catches the first ion-content
 
   constructor(private db: Database, private auth: Auth, private router: Router, private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -38,6 +40,11 @@ export class ChatPage implements OnInit {
       }
     });
   }
+
+  // Allows to go to latest message at bottom
+  ngAfterViewChecked() {
+    this.content?.scrollToBottom(0);
+  } 
 
   getMessages(){
     const dbref = ref(this.db, `Chat/${this.chat_id}/Chat Messages`)
