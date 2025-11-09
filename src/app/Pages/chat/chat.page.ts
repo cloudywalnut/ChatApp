@@ -85,7 +85,7 @@ export class ChatPage implements OnInit {
   // Just this method needs to be updated
   ai_message(message: any) {
     const payload = {message: message, system_message: this.ai_prompt}
-    this.http.post('https://web-production-db5e6.up.railway.app/chatApp', payload).subscribe(
+    this.http.post('https://osom.up.railway.app/chatApp', payload).subscribe(
       (response: any) => {
         this.new_message = response.response;
       }
